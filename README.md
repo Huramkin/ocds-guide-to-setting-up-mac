@@ -4,9 +4,9 @@
 
 [English Version](https://github.com/macdao/ocds-guide-to-setting-up-mac/blob/master/README.en.md)
 
-本文的最初版本写于 2015 年，那时候我刚拿到 2015 款的 MacBook Pro。我还记得相较于 2012 款它最大的变化是触摸板四个角都可以按压。虽然我没记录，但那时用的应该是 OS X El Capitan 10.11。
+本文的最初版本写于 2015 年，那时候我用的是一台 2013 款的 MacBook Pro，操作系统刚升级到 OS X El Capitan 10.11。
 
-转眼到了 2019 年，我刚刚拿到 2019 款的 MacBook Pro，系统自带的是 macOS Catalina 10.15。我特意没有从 Time Machine 恢复，而选择从头配置。当我按照本文配置时我发现，很多地方都变了。本次更新也由此而来。
+转眼到了 2019 年，我刚刚拿到 2019 款的 MacBook Pro，操作系统是 macOS Catalina 10.15。我特意没有从 Time Machine 恢复，而选择从头配置。当我按照本文配置时我发现，很多地方都变了。本次更新也由此而来。
 
 想要怀旧的可以来这里：[2015 Version](https://github.com/macdao/ocds-guide-to-setting-up-mac/tree/2015)
 
@@ -24,8 +24,8 @@
    - [词典](#词典)
    - [Dock Position](#dock-position)
    - [更改 Caps Lock 键为 Control 键](#更改-caps-lock-键为-control-键)
-   - [Remove all Dock icons[OCD]](#remove-all-dock-iconsocd)
-   - [重置 Launchpad 上图标位置[OCD]](#重置-launchpad-上图标位置ocd)
+   - [Remove all Dock icons [OCD]](#remove-all-dock-icons-ocd)
+   - [重置 Launchpad 上图标位置 [OCD]](#重置-launchpad-上图标位置-ocd)
    - [创建大小写敏感的工作区](#创建大小写敏感的工作区)
    - [Keychain Access](#keychain-access)
    - [三指拖动](#三指拖动)
@@ -57,7 +57,7 @@
    - [Java](#java)
    - [jEnv](#jenv)
    - [民间使用的 Java 版本切换方法](#民间使用的-java-版本切换方法)
-   - [Java[OCD]](#javaocd)
+   - [Java [OCD]](#java-ocd)
    - [IntelliJ IDEA](#intellij-idea)
    - [rbenv](#rbenv)
    - [Ruby 常用别名](#ruby-常用别名)
@@ -93,7 +93,7 @@
 
 本文对于第三方应用如何安装和使用只有最简单的介绍，具体还请参考官方网站和相关文档。
 
-有些章节标题标注了[OCD]，意思是这些章节带有我强烈的个人色彩，如果你跟我臭味相投，欢迎借鉴，如果你并不认同，请忽略掉好了。
+有些章节标题标注了 [OCD]，意思是这些章节带有我强烈的个人色彩，如果你跟我臭味相投，欢迎借鉴，如果你并不认同，请忽略掉好了。
 
 PS：虽然本文名为“强迫症”，但其实并不是[真正意义上的强迫症](https://zh.wikipedia.org/wiki/强迫症)，真正意义上的强迫症是一种会对患者的日常生活产生负面影响的疾病。
 
@@ -203,7 +203,7 @@ macOS 自带了词典（Dictionary）。你几乎可以在任何应用中通过�
 
 PS：由于现在`Caps Lock`用来切换输入法，所以如果要把`Caps Lock`键改成`Control`，那还需要设置输入法快捷键。我正在尝试习惯不更改`Caps Lock`。
 
-### Remove all Dock icons[OCD]
+### Remove all Dock icons [OCD]
 
 本条目对于强迫症适用。
 
@@ -227,7 +227,7 @@ defaults delete com.apple.dock; killall Dock
 
 PS：使用这个方法会让所有的 Dock 配置重置。
 
-### 重置 Launchpad 上图标位置[OCD]
+### 重置 Launchpad 上图标位置 [OCD]
 
 本条目对于强迫症适用。
 
@@ -285,7 +285,7 @@ brew install wget gradle maven
 
 PS：安装 Homebrew 的时候会自动下载和安装 Apple 的 Command Line Tools。
 
-执行`install`的时候经常会更新。我可以设置环境变量`HOMEBREW_NO_AUTO_UPDATE`关闭更新：
+执行`install`的时候经常会执行更新，有时候会比较慢，我们可以设置环境变量`HOMEBREW_NO_AUTO_UPDATE`关闭更新：
 
 ```sh
 echo export HOMEBREW_NO_AUTO_UPDATE=1 >> ~/.zprofile
@@ -314,7 +314,7 @@ brew update --force
 
 PS：这是一句命令，不是三句。
 
-> 本方法基于`https://github.com/Homebrew/install/blob/c744a716f9845988d01e6e238eee7117b8c366c9/install`，如果`install`脚本更新有可能导致本方法失效。若发现失效请提交`issue`。
+> 本方法基于 <https://github.com/Homebrew/install/blob/c744a716f9845988d01e6e238eee7117b8c366c9/install>，如果`install`脚本更新有可能导致本方法失效。若发现失效请提交`issue`。
 
 另外下载安装包也可以使用国内镜像，具体参考：<https://lug.ustc.edu.cn/wiki/mirrors/help/homebrew-bottles>
 
@@ -372,7 +372,7 @@ brew cask install iterm2
 
 Oh My Zsh 使用了 Z shell（Zsh），一个和 Bash 相似的 Shell，而非 Bash。
 
-在 Zsh 中，`~/.zshrc`是最重要的配置文件。Oh My Zsh 在安装的时候会把当前环境的`$PATH`写入`~/.zshrc`中。这并不是我期望的行为，因为使用了 brew，我们基本不再需要去定制`$PATH`，而 Oh My Zsh 提供的默认`$PATH`值`$HOME/bin:/usr/local/bin:$PATH`是非常合适的一个值，它把`$HOME/bin`加入了`$PATH`，可以让我们把自己用的脚本放到`$HOME/bin`下。
+在 Zsh 中，`~/.zshrc`是最重要的配置文件。Oh My Zsh 在安装的时候会把当前环境的`$PATH`写入`~/.zshrc`中。这并不是我期望的行为，因为使用了 Homebrew，我们基本不再需要去定制`$PATH`，而 Oh My Zsh 提供的默认`$PATH`值`$HOME/bin:/usr/local/bin:$PATH`是非常合适的一个值，它把`$HOME/bin`加入了`$PATH`，可以让我们把自己用的脚本放到`$HOME/bin`下。
 
 所以建议把`~/.zshrc`重置：
 
@@ -384,7 +384,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 Oh My Zsh 还有很多[有价值的插件](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)。
 
-替代品有 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)。基于 [fish shell](https://fishshell.com/) 。
+替代品有基于 [fish shell](https://fishshell.com/) 的 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)，基于 Bash 的 [Oh My Bash](https://github.com/ohmybash/oh-my-bash)。
 
 ### Git 常用别名
 
@@ -484,7 +484,7 @@ brew cask install macdown
 
 这货的安装非常方便，甚至都不需要下载任何东西，因为它已经整合在了 Oh My Zsh 中。编辑`~/.zshrc`文件，在`plugins=(git)`这行中加上`z`变成`plugins=(git z)`，然后运行`source ~/.zshrc`重新加载配置文件，就可以使用 z 了。
 
-替代品有 autojump。autojump 需要使用 brew 安装。
+替代品有 autojump。autojump 需要使用 Homebrew 安装。
 
 ### [Vimium](https://vimium.github.io/)
 
@@ -492,7 +492,7 @@ Vimium 是一个 Google Chrome 扩展，让你可以纯键盘操作 Chrome，把
 
 安装方法请参考官方网站。
 
-其他浏览器也有类似的工具，比如 Firefox 的 [KeySnail](https://github.com/mooz/keysnail)。Vimium 也有 Firefox 版本 Vimium-FF。
+其他浏览器也有类似的工具，比如 Firefox 的 Vimium-FF。
 
 ### [LastPass](https://lastpass.com)
 
@@ -500,7 +500,7 @@ Vimium 是一个 Google Chrome 扩展，让你可以纯键盘操作 Chrome，把
 
 LastPass 是管理密码的工具，支持二次验证，提供所有浏览器插件以及 Mac 桌面版本。
 
-最重要的是，它提供**命令行**的版本，可以直接通过 brew 安装
+最重要的是，它提供**命令行**的版本，可以直接通过 Homebrew 安装
 
 ```sh
 brew install lastpass-cli --with-pinentry
@@ -572,11 +572,11 @@ brew install stow
 
 安装了 stow 之后，我们可以开始 symlink 一些 dotfiles 了。完整使用 stow 和 dotfiles 的流程可以参考 <https://github.com/jcouyang/dotfiles>
 
-当你的 dotfiles 都妥妥的 symlink 到 `~/dotfiles` 后，push 到 github 上就再也不怕换电脑了。
+当你的 dotfiles 都妥妥的 symlink 到 `~/dotfiles` 后，push 到 GitHub 上就再也不怕换电脑了。
 
 ### 安装字体
 
-我经常会使用一些开源字体，比如`Open Sans`。之前我会从网上寻找并下载字体，后来使用[SkyFonts](https://www.monotype.com/products/skyfonts)安装字体，直到我发现了 [homebrew-cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)：
+我经常会使用一些开源字体，比如`Open Sans`。之前我会从网上寻找并下载字体，后来使用 [SkyFonts](https://www.monotype.com/products/skyfonts) 安装字体，直到我发现了 [homebrew-cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)：
 
 ```sh
 brew tap homebrew/cask-fonts
@@ -631,7 +631,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-466.1, mixed mode)
 
 > unverified
 
-也可以使用 jEnv 来管理不同版本的 JDK，这个工具跟 [rbenv](#rbenv) 类似，通过当前目录下的`.java-version`来决定使用哪个 JDK。jEnv 也可以用 brew 安装。不过要使用 jEnv 要有几个问题：
+也可以使用 jEnv 来管理不同版本的 JDK，这个工具跟 [rbenv](#rbenv) 类似，通过当前目录下的`.java-version`来决定使用哪个 JDK。jEnv 也可以用 Homebrew 安装。不过要使用 jEnv 要有几个问题：
 
 - 需要手动把`eval "$(jenv init -)"`加入 profile，没有 Oh My Zsh 插件。这点是我非常反感的。
 
@@ -656,7 +656,7 @@ function setjdk() {
 setjdk 1.8
 ```
 
-### Java[OCD]
+### Java [OCD]
 
 作为一个强迫症患者，每当我看到 Java 的错误写法就想纠正过来。
 
@@ -701,7 +701,7 @@ IntelliJ IDEA 自带了 Fira Code 字体，支持字体连笔（font ligatures�
 
 > unverified
 
-人人都需要一个 Ruby 版本管理工具。rbenv 就是这样一个轻量级工具，它可以通过 brew 安装。
+人人都需要一个 Ruby 版本管理工具。rbenv 就是这样一个轻量级工具，它可以通过 Homebrew 安装。
 
 安装：
 
@@ -717,7 +717,7 @@ brew install rbenv ruby-build
 brew install rbenv-aliases
 ```
 
-替代品有 RVM、chruby。因为 RVM 不能通过 brew 安装，并且安装的时候会没有节操的修改一堆文件，所以被我早早的弃用了。chruby 也是一个轻量级工具，而且可以完美的和 Oh My Zsh 集成在一起，我看到有些生产环境在用它。
+替代品有 RVM、chruby。因为 RVM 不能通过 Homebrew 安装，并且安装的时候会没有节操的修改一堆文件，所以被我早早的弃用了。chruby 也是一个轻量级工具，而且可以完美的和 Oh My Zsh 集成在一起，我看到有些生产环境在用它。
 
 ### Ruby 常用别名
 
